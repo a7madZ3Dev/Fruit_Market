@@ -17,7 +17,7 @@ class _SplashBodyState extends State<SplashBody>
     super.initState();
 
     _controller = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 5000));
+        vsync: this, duration: Duration(seconds: 1));
     _opacityAnimation = Tween(begin: 0.0, end: 1.0)
         .animate(CurvedAnimation(parent: _controller, curve: Curves.linear));
     _controller.forward();
@@ -25,30 +25,26 @@ class _SplashBodyState extends State<SplashBody>
 
   @override
   Widget build(BuildContext context) {
-    print('this rebuild');
-    return AnimatedBuilder(
-      animation: _opacityAnimation,
-      builder: (context, ch) => Opacity(
-        opacity:_opacityAnimation.value ,
-        child: Column(
-          children: <Widget>[
-            const Spacer(),
-            const Text(
-              'Fruit Market',
-              style: TextStyle(
-                fontSize: 45,
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-              ),
-              textAlign: TextAlign.center,
+    return FadeTransition(
+      opacity: _opacityAnimation,
+      child: Column(
+        children: <Widget>[
+          const Spacer(),
+          const Text(
+            'Fruit Market',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 45,
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
             ),
-            Image.asset(
-              'assets/images/splash_view_image.png',
-              fit: BoxFit.cover,
-              width: double.infinity,
-            ),
-          ],
-        ),
+          ),
+          Image.asset(
+            'assets/images/splash_view_image.png',
+            fit: BoxFit.cover,
+            width: double.infinity,
+          ),
+        ],
       ),
     );
   }
