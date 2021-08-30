@@ -17,7 +17,7 @@ class _SplashBodyState extends State<SplashBody>
     super.initState();
 
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 800));
     _fadeAnimation = Tween(begin: 0.1, end: 1.0)
         .animate(CurvedAnimation(parent: _controller, curve: Curves.linear));
 
