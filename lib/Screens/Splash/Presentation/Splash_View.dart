@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
-import './widgets/splash_body.dart';
+import '/core/style/colors.dart';
+import 'widgets/splash_body.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF69A03A),
-      body: SplashBody(),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: kMainColor,
+        body: SplashBody(),
+      );
 }
