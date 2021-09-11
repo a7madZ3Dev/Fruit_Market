@@ -8,7 +8,7 @@ import 'states.dart';
 class OnBoardingCubit extends Cubit<OnBoardingStates> {
   OnBoardingCubit() : super(OnBoardingInitialState());
 
-  // get object from cubit class
+  /// get object from cubit class
   static OnBoardingCubit get(BuildContext context) =>
       BlocProvider.of<OnBoardingCubit>(context);
 
