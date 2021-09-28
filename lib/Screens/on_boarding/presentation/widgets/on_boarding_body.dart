@@ -4,8 +4,8 @@ import 'package:get/get.dart' as getx;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '/core/utils/size_config.dart';
-import '/core/widgets/custom_button.dart';
-import '/screens/home/home.dart';
+import '/core/widgets/custom_buttons.dart';
+import '/screens/auth/presentation/pages/login/login_view.dart';
 import '/screens/on_boarding/cubit/cubit.dart';
 import '/screens/on_boarding/cubit/states.dart';
 import 'custom_page_view.dart';
@@ -49,7 +49,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
               children: [
                 SmoothPageIndicator(
                   controller: pageController,
-                  count: onBoardingCubit.boarding.length,
+                  count: onBoardingCubit.getLenght,
                   effect: SwapEffect(
                     type: SwapType.yRotation,
                     activeDotColor: Theme.of(context).primaryColor,
@@ -67,7 +67,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
               top: SizeConfig.defaultSize * 8,
               child: GestureDetector(
                 onTap: () => getx.Get.off(
-                  () => const Home(),
+                  () => const LogInView(),
                   transition: getx.Transition.rightToLeftWithFade,
                 ),
                 child: const Text(
@@ -95,7 +95,8 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                         curve: Curves.fastLinearToSlowEaseIn,
                       )
                     : getx.Get.off(
-                        () => const Home(),
+                        () => const LogInView(),
+                        duration: const Duration(milliseconds: 400),
                         transition: getx.Transition.rightToLeftWithFade,
                       );
               },
