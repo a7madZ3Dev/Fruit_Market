@@ -17,10 +17,10 @@ class CompleteInformationBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                const SpaceWidget(heightSpace: 12.0),
+                const SpaceWidget(heightSpace: 8.0),
                 CompleteInfoItem(
                   text: 'Enter Your Name',
-                  name: 'Name',
+                  textFieldName: 'Name',
                   inputType: TextInputType.name,
                   onSaved: (value) {
                     // shopCubit.userLogInData['name'] = value;
@@ -29,7 +29,7 @@ class CompleteInformationBody extends StatelessWidget {
                 const SpaceWidget(heightSpace: 2.0),
                 CompleteInfoItem(
                   text: 'Enter Your Phone Number',
-                  name: 'Phone Number',
+                  textFieldName: 'Phone Number',
                   inputType: TextInputType.phone,
                   onSaved: (value) {
                     // shopCubit.userLogInData['name'] = value;
@@ -38,7 +38,7 @@ class CompleteInformationBody extends StatelessWidget {
                 const SpaceWidget(heightSpace: 2.0),
                 CompleteInfoItem(
                   text: 'Add Your Address',
-                  name: 'Address',
+                  textFieldName: 'Address',
                   inputType: TextInputType.multiline,
                   textInputAction: TextInputAction.newline,
                   maxLines: 5,
@@ -46,7 +46,7 @@ class CompleteInformationBody extends StatelessWidget {
                     // shopCubit.userLogInData['name'] = value;
                   },
                 ),
-                const SpaceWidget(heightSpace: 6.0),
+                const SpaceWidget(heightSpace: 5.0),
                 CustomButton(
                   label: 'Log In',
                   onTap: () {},

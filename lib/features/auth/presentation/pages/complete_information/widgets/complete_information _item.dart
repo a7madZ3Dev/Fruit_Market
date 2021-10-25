@@ -7,16 +7,16 @@ class CompleteInfoItem extends StatelessWidget {
   final TextInputType? inputType;
   final TextInputAction? textInputAction;
   final String text;
-  final String? name;
-  final int maxLines;
+  final String? textFieldName;
+  final int? maxLines;
 
   const CompleteInfoItem({
     required this.text,
-    required this.name,
+    required this.textFieldName,
     this.onSaved,
-    this.textInputAction,
+    this.textInputAction = TextInputAction.next,
     this.inputType,
-    this.maxLines = 1,
+    this.maxLines,
     Key? key,
   }) : super(key: key);
   @override
@@ -40,12 +40,12 @@ class CompleteInfoItem extends StatelessWidget {
             child: CustomTextField(
               validate: (value) {
                 if (value!.trim().isEmpty) {
-                  return '$name field must not be empty!';
+                  return '$textFieldName field must not be empty!';
                 }
               },
               onSaved: onSaved,
               maxLines: maxLines,
-              type: inputType,
+              inputType: inputType,
               textInputAction: textInputAction,
             ),
           ),

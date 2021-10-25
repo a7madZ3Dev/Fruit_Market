@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart' as getx;
 
+import '/core/constant.dart';
 import '/core/style/colors.dart';
 import '/core/utils/size_config.dart';
 import '/core/widgets/custom_buttons.dart';
@@ -16,10 +17,10 @@ class LogInBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            'assets/images/logo.png',
+            kLogo,
             fit: BoxFit.contain,
-            height: SizeConfig.safeBlockVerticalWithOutAppBar * 25,
-            width: SizeConfig.safeBlockHorizontal * 60,
+            height: SizeConfig.safeBlockVerticalWithOutAppBar * 30,
+            width: SizeConfig.safeBlockHorizontal * 70,
           ),
           const Text.rich(
             TextSpan(
@@ -62,7 +63,7 @@ class LogInBody extends StatelessWidget {
                       );
                     },
                     iconData: FontAwesomeIcons.google,
-                    color: const Color(0xFFdb3236),
+                    iconColor: const Color(0xFFdb3236),
                   ),
                 ),
               ),
@@ -78,7 +79,7 @@ class LogInBody extends StatelessWidget {
                       );
                     },
                     iconData: FontAwesomeIcons.facebook,
-                    color: const Color(0xFF4267B2),
+                    iconColor: const Color(0xFF4267B2),
                   ),
                 ),
               ),

@@ -1,39 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart' as getx;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '/core/utils/size_config.dart';
 import '/core/widgets/custom_buttons.dart';
-import '/screens/auth/presentation/pages/login/login_view.dart';
-import '/screens/on_boarding/cubit/cubit.dart';
-import '/screens/on_boarding/cubit/states.dart';
+import '/features/auth/presentation/pages/login/login_view.dart';
+import '/features/on_boarding/cubit/cubit.dart';
+import '/features/on_boarding/cubit/states.dart';
 import 'custom_page_view.dart';
 
-class OnBoardingBody extends StatefulWidget {
+class OnBoardingBody extends HookWidget {
   const OnBoardingBody({Key? key}) : super(key: key);
-
-  @override
-  _OnBoardingBodyState createState() => _OnBoardingBodyState();
-}
-
-class _OnBoardingBodyState extends State<OnBoardingBody> {
-  late PageController pageController;
-
-  @override
-  void initState() {
-    super.initState();
-    pageController = PageController();
-  }
-
-  @override
-  void dispose() {
-    pageController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
+    final pageController = usePageController();
     final onBoardingCubit = OnBoardingCubit.get(context);
     return BlocConsumer<OnBoardingCubit, OnBoardingStates>(
       listener: (context, state) {},
@@ -49,7 +31,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
               children: [
                 SmoothPageIndicator(
                   controller: pageController,
-                  count: onBoardingCubit.getLenght,
+                  count: 3,
                   effect: SwapEffect(
                     type: SwapType.yRotation,
                     activeDotColor: Theme.of(context).primaryColor,
@@ -66,10 +48,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
               right: 25.0,
               top: SizeConfig.defaultSize * 8,
               child: GestureDetector(
-                onTap: () => getx.Get.off(
-                  () => const LogInView(),
-                  transition: getx.Transition.rightToLeftWithFade,
-                ),
+                onTap: transitionFunction,
                 child: const Text(
                   'Skip',
                   style: TextStyle(
@@ -89,16 +68,12 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
             child: CustomButton(
               label: onBoardingCubit.labelButton,
               onTap: () {
-                onBoardingCubit.index != onBoardingCubit.getLenght
+                onBoardingCubit.index != 3
                     ? pageController.nextPage(
                         duration: const Duration(milliseconds: 750),
                         curve: Curves.fastLinearToSlowEaseIn,
                       )
-                    : getx.Get.off(
-                        () => const LogInView(),
-                        duration: const Duration(milliseconds: 400),
-                        transition: getx.Transition.rightToLeftWithFade,
-                      );
+                    : transitionFunction();
               },
             ),
           ),
@@ -107,3 +82,9 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
     );
   }
 }
+
+void transitionFunction() => getx.Get.off(
+      () => const LogInView(),
+      duration: const Duration(milliseconds: 400),
+      transition: getx.Transition.rightToLeftWithFade,
+    );

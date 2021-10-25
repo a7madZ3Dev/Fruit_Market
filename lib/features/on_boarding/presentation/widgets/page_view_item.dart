@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 
 import '/core/utils/size_config.dart';
 import '/core/widgets/space_widget.dart';
-import '/models/on_boarding_model.dart';
 
 class PageViewItem extends StatelessWidget {
-  final BoardingModel item;
+  final String title;
+  final String subTitle;
+  final String image;
 
   const PageViewItem({
-    required this.item,
+    required this.title,
+    required this.subTitle,
+    required this.image,
     Key? key,
   }) : super(key: key);
 
@@ -17,14 +20,14 @@ class PageViewItem extends StatelessWidget {
         children: [
           const SpaceWidget(heightSpace: 16),
           Image.asset(
-            item.image,
+            image,
             fit: BoxFit.contain,
             height: SizeConfig.safeBlockVerticalWithOutAppBar * 40,
             width: SizeConfig.safeBlockHorizontal * 95,
           ),
           const SpaceWidget(heightSpace: 2),
           Text(
-            item.title,
+            title,
             style: const TextStyle(
               fontSize: 20,
               color: Color(0xff2f2e41),
@@ -34,7 +37,7 @@ class PageViewItem extends StatelessWidget {
           ),
           const SpaceWidget(heightSpace: 2),
           Text(
-            item.subTitle,
+            subTitle,
             style: const TextStyle(
               fontSize: 15,
               color: Color(0xff78787c),

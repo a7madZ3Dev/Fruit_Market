@@ -7,7 +7,7 @@ class SplashView extends StatelessWidget {
   const SplashView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => const Scaffold(
         backgroundColor: kMainColor,
         body: SplashBody(),
       );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '/core/style/colors.dart';
 
 class CustomTextField extends StatelessWidget {
-  final TextInputType? type;
+  final TextInputType? inputType;
   final String? Function(String? value) validate;
   final ValueSetter? onSubmit;
   final ValueSetter? onChange;
@@ -15,14 +15,12 @@ class CustomTextField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final String? initialValue;
   final bool isPassword;
-  final int maxLines;
-  final bool readOnly;
-  final bool showCursor;
+  final int? maxLines;
 
   const CustomTextField({
     required this.validate,
     this.textInputAction = TextInputAction.next,
-    this.type = TextInputType.text,
+    this.inputType = TextInputType.text,
     this.onSubmit,
     this.onChange,
     this.onSaved,
@@ -33,8 +31,6 @@ class CustomTextField extends StatelessWidget {
     this.initialValue,
     this.isPassword = false,
     this.maxLines = 1,
-    this.readOnly = false,
-    this.showCursor = true,
     Key? key,
   }) : super(key: key);
 
@@ -43,14 +39,12 @@ class CustomTextField extends StatelessWidget {
         key: key,
         controller: controller,
         initialValue: initialValue,
-        keyboardType: type,
+        keyboardType: inputType,
         obscureText: isPassword,
         maxLines: maxLines,
         onFieldSubmitted: onSubmit,
         onChanged: onChange,
         validator: validate,
-        showCursor: showCursor,
-        readOnly: readOnly,
         onSaved: onSaved,
         textInputAction: textInputAction,
         decoration: InputDecoration(

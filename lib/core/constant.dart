@@ -1,0 +1,1 @@
+const String kLogo = 'assets/images/logo.png';

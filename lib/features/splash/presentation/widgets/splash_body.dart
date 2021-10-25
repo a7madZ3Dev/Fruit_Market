@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 
 import '/core/utils/size_config.dart';
-import '/screens/on_boarding/presentation/on_boarding_view.dart';
+import '/features/on_boarding/presentation/on_boarding_view.dart';
 
 // class SplashBody extends StatefulWidget {
 //   const SplashBody({Key? key}) : super(key: key);
@@ -72,6 +72,8 @@ import '/screens/on_boarding/presentation/on_boarding_view.dart';
 // }
 
 class SplashBody extends HookWidget {
+  const SplashBody({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
