@@ -4,11 +4,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart' as getx;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '/core/style/textStyles.dart';
 import '/core/utils/size_config.dart';
 import '/core/widgets/custom_buttons.dart';
 import '/features/auth/presentation/pages/login/login_view.dart';
-import '/features/on_boarding/cubit/cubit.dart';
-import '/features/on_boarding/cubit/states.dart';
+import '/features/on_boarding/presentation/manger/cubit.dart';
+import '/features/on_boarding/presentation/manger/states.dart';
 import 'custom_page_view.dart';
 
 class OnBoardingBody extends HookWidget {
@@ -16,8 +17,7 @@ class OnBoardingBody extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final pageController = usePageController();
-    final onBoardingCubit = OnBoardingCubit.get(context);
-    return BlocConsumer<OnBoardingCubit, OnBoardingStates>(
+    return BlocConsumer<OnBoardingScreenCubit, OnBoardingScreenStates>(
       listener: (context, state) {},
       builder: (context, state) => Stack(
         children: [
@@ -43,20 +43,16 @@ class OnBoardingBody extends HookWidget {
             ),
           ),
           Visibility(
-            visible: onBoardingCubit.visible,
+            visible: state.visible,
             child: Positioned(
               right: 25.0,
               top: SizeConfig.defaultSize * 8,
               child: GestureDetector(
                 onTap: transitionFunction,
-                child: const Text(
+                child:  Text(
                   'Skip',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xff898989),
-                    fontWeight: FontWeight.w400,
-                  ),
                   textAlign: TextAlign.left,
+                  style: skipButtonStyle
                 ),
               ),
             ),
@@ -66,9 +62,9 @@ class OnBoardingBody extends HookWidget {
             right: SizeConfig.safeBlockHorizontal * 33.3,
             bottom: SizeConfig.defaultSize * 6,
             child: CustomButton(
-              label: onBoardingCubit.labelButton,
+              label: state.buttonLabel,
               onTap: () {
-                onBoardingCubit.index != 3
+                state.index != 2
                     ? pageController.nextPage(
                         duration: const Duration(milliseconds: 750),
                         curve: Curves.fastLinearToSlowEaseIn,

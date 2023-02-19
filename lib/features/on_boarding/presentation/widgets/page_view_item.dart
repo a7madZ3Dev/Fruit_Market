@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '/core/style/textStyles.dart';
 import '/core/utils/size_config.dart';
 import '/core/widgets/space_widget.dart';
 
@@ -28,22 +29,14 @@ class PageViewItem extends StatelessWidget {
           const SpaceWidget(heightSpace: 2),
           Text(
             title,
-            style: const TextStyle(
-              fontSize: 20,
-              color: Color(0xff2f2e41),
-              fontWeight: FontWeight.w900,
-            ),
             textAlign: TextAlign.left,
+            style: onBoardTitleStyle,
           ),
           const SpaceWidget(heightSpace: 2),
           Text(
             subTitle,
-            style: const TextStyle(
-              fontSize: 15,
-              color: Color(0xff78787c),
-              fontWeight: FontWeight.bold,
-            ),
             textAlign: TextAlign.left,
+            style: onBoardSubTitleStyle,
           )
         ],
       );

@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart' as getx;
 
 import '/core/constant.dart';
-import '/core/style/colors.dart';
+import '/core/style/textStyles.dart';
 import '/core/utils/size_config.dart';
 import '/core/widgets/custom_buttons.dart';
 import '/core/widgets/space_widget.dart';
@@ -22,30 +22,22 @@ class LogInBody extends StatelessWidget {
             height: SizeConfig.safeBlockVerticalWithOutAppBar * 30,
             width: SizeConfig.safeBlockHorizontal * 70,
           ),
-          const Text.rich(
+          Text.rich(
             TextSpan(
-              style: TextStyle(
-                fontSize: 51,
-                color: kMainColor,
-              ),
+              style: logInTitleMainStyle,
               children: [
                 TextSpan(
                   text: 'F',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                  ),
+                  style: logInTitleFStyle,
                 ),
                 TextSpan(
                   text: 'ruit Market',
-                  style: TextStyle(
-                    fontSize: 42,
-                    fontWeight: FontWeight.w900,
-                  ),
+                  style: logInTitleStyle,
                 ),
               ],
             ),
             textHeightBehavior:
-                TextHeightBehavior(applyHeightToFirstAscent: false),
+                const TextHeightBehavior(applyHeightToFirstAscent: false),
             textAlign: TextAlign.left,
           ),
           const SpaceWidget(heightSpace: 7.0),

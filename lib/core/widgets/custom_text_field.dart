@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final IconData? suffix;
   final IconData? prefix;
-  final Color? fillColor;
+  final Color fillColor;
   final TextInputAction? textInputAction;
   final String? initialValue;
   final bool isPassword;
@@ -19,8 +19,8 @@ class CustomTextField extends StatelessWidget {
 
   const CustomTextField({
     required this.validate,
-    this.textInputAction = TextInputAction.next,
-    this.inputType = TextInputType.text,
+    this.textInputAction,
+    this.inputType,
     this.onSubmit,
     this.onChange,
     this.onSaved,
@@ -30,7 +30,7 @@ class CustomTextField extends StatelessWidget {
     this.fillColor = Colors.transparent,
     this.initialValue,
     this.isPassword = false,
-    this.maxLines = 1,
+    this.maxLines,
     Key? key,
   }) : super(key: key);
 

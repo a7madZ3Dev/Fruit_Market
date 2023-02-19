@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 
+import '/core/style/textStyles.dart';
 import '/core/utils/size_config.dart';
 import '/features/on_boarding/presentation/on_boarding_view.dart';
 
@@ -100,14 +101,10 @@ class SplashBody extends HookWidget {
         const Spacer(),
         FadeTransition(
           opacity: _fadeAnimation,
-          child: const Text(
+          child: Text(
             'Fruit Market',
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 45,
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
-            ),
+            style: splashTitleStyle,
           ),
         ),
         Image.asset(

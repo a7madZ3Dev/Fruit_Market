@@ -6,7 +6,7 @@ import 'space_widget.dart';
 
 class CustomButton extends StatelessWidget {
   final String label;
-  final Color? buttonColor;
+  final Color buttonColor;
   final VoidCallback onTap;
   const CustomButton({
     required this.onTap,

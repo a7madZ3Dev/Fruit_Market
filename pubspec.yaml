@@ -25,13 +25,18 @@ dependencies:
     sdk: flutter
 
   get: ^4.3.8
-  bloc: ^7.2.1
+  bloc: ^8.0.1
   dartz: ^0.10.0
   equatable: ^2.0.3
-  flutter_bloc: ^7.3.1
+  flutter_bloc: ^8.0.0
+  firebase_core: ^1.8.0
+  firebase_auth: ^3.1.4
   flutter_hooks: ^0.18.0
+  google_sign_in: ^5.2.0
+  cloud_firestore: ^2.5.4
   shared_preferences: ^2.0.8
   font_awesome_flutter: ^9.2.0
+  flutter_facebook_auth: ^3.5.3
   smooth_page_indicator: ^1.0.0+2
 
 

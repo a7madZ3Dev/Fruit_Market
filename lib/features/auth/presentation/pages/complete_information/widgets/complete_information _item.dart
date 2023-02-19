@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
+import '/core/style/textStyles.dart';
 import '/core/widgets/custom_text_field.dart';
 
 class CompleteInfoItem extends StatelessWidget {
   final ValueSetter? onSaved;
-  final TextInputType? inputType;
-  final TextInputAction? textInputAction;
+  final TextInputType inputType;
+  final TextInputAction textInputAction;
   final String text;
   final String? textFieldName;
-  final int? maxLines;
+  final int maxLines;
 
   const CompleteInfoItem({
     required this.text,
     required this.textFieldName,
     this.onSaved,
     this.textInputAction = TextInputAction.next,
-    this.inputType,
-    this.maxLines,
+    this.inputType = TextInputType.text,
+    this.maxLines = 1,
     Key? key,
   }) : super(key: key);
   @override
@@ -25,15 +26,10 @@ class CompleteInfoItem extends StatelessWidget {
         children: [
           Text(
             text,
-            style: const TextStyle(
-              fontSize: 14,
-              color: Color(0xff0c0b0b),
-              fontWeight: FontWeight.w600,
-              height: 1.5625,
-            ),
             textHeightBehavior:
                 const TextHeightBehavior(applyHeightToFirstAscent: false),
             textAlign: TextAlign.center,
+            style: textFieldLabelStyle,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 1.0),
