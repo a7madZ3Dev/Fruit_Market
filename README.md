@@ -1,7 +1,8 @@
 ## fruit market 🛒
 
-E-commerce Flutter project. Depending on Bloc as State Management and Firebase as Backend.
-Supports the login process via Google account as well as Facebook. It is still under development. 
+E-commerce Flutter project, Depending on Bloc as State Management and Firebase as Backend.
+Supports the login process via Google account as well as Facebook.
+It is still under development. 
 
 <br>
 
