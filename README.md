@@ -31,3 +31,7 @@ If you liked the repo then kindly support it by giving it a star ⭐!
 
 Copyright (c) 2023 Ahmad Alzoabi
 
+## Visitors Count
+
+<img align="left" src = "https://profile-counter.glitch.me/fruit market/count.svg" alt ="Loading">
+
